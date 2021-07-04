@@ -39,8 +39,9 @@ class SignUp extends React.Component   {
       })
     }
 
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+    firebaseApp.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then((res) => {
+        //console.log(firebaseApp.auth().firebasecurrentUser.uid);
         console.log('User registered successfully!')
         this.setState({
           isLoading: false,
@@ -49,7 +50,10 @@ class SignUp extends React.Component   {
         })
         // this.props.navigation.navigate('Login')
       })
-      .catch(error => this.setState({ errorMessage: error.message }))      
+      .catch(error =>{
+        console.log(error);
+        this.setState({ errorMessage: error.message })
+      })      
 }
 
   render()

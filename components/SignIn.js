@@ -4,7 +4,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, Ima
 import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons'; 
 import {firebaseApp} from '../firebase-config';
-import firebase from '@react-native-firebase/app';
+// import firebase from '@react-native-firebase/app';
 // import auth from '@react-native-firebase/auth';
 
 
@@ -32,7 +32,7 @@ class SignIn extends React.Component {
     })
     .catch(() => {
       console.log("Not a valid user");
-      this.state({error: 'Authentication failed', isLoading: false})
+      //this.state({error: 'Authentication failed', isLoading: false})
     })
   }
 
@@ -85,7 +85,7 @@ class SignIn extends React.Component {
                 </TouchableOpacity>    
             </View>
 
-            <Text style={[{color: 'blue'}, {marginTop: 25}]} onPress={()=>{navigation.navigate('SignUp')}}>Register Here!</Text>
+            <Text style={[{color: 'blue'}, {marginTop: 25}]} onPress={()=>{this.props.navigation.navigate('SignUp')}}>Register Here!</Text>
 
 
         </View>
